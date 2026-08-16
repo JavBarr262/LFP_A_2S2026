@@ -21,7 +21,7 @@ def menu():
         opcion = input("Seleccione una opción (1-8): ")
 
         if opcion == "1":
-            print("Opción 1 seleccionada: Subir archivos de los sudokus")
+            print("Prueba de datos modificados")
             # Lógica para subir archivos de sudokus
         elif opcion == "2":
             print("Opción 2 seleccionada: Subir datos de los jugadores")
