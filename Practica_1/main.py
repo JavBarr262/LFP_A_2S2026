@@ -1,6 +1,10 @@
 "Menu principal"
 
 import os
+from torneo import Torneo
+from validaciones import val_intento
+
+carpeta_reportes="reportes"
 
 def mostrar_menu():
     print("\n-------------------")
@@ -15,35 +19,46 @@ def mostrar_menu():
     print("7) Generar reporte TOP 10 mejores jugadores")
     print("8) Finalizar tarea")
 
+def definir_ruta(ruta_predeterminada):
+    ruta = input(f"Introduzca la ruta del archivo (por defecto: {ruta_predeterminada}): ").strip()
+    return ruta if ruta else ruta_predeterminada
+
+def Validar_carpeta_reportes():
+    carpeta_reportes = "reportes"
+    if not os.path.exists(carpeta_reportes):
+        os.makedirs(carpeta_reportes)
+        print(f"Se ha creado la carpeta '{carpeta_reportes}' para los reportes.")
+    else:
+        print(f"La carpeta '{carpeta_reportes}' ya existe.")
+
 def menu():
+    Validar_carpeta_reportes()
+    torneo=Torneo()
     while True:
         mostrar_menu()
-        opcion = input("Seleccione una opción (1-8): ")
+        opcion = input("Seleccione una opción (1-8): ").strip()
 
         if opcion == "1":
             print("Opcion 1 seleccionada: Subir archivos de los sudokus")
-            # Lógica para subir archivos de sudokus
+            ruta= definir_ruta("datos/sudokus.lfp")
+            torneo.cargar_sudokus(ruta)
         elif opcion == "2":
             print("Opcion 2 seleccionada: Subir datos de los jugadores")
-            # Lógica para subir datos de jugadores
+
         elif opcion == "3":
             print("Opcion 3 seleccionada: Subir datos de los intentos")
-            # Lógica para subir datos de intentos
+
         elif opcion == "4":
             print("Opcion  4 seleccionada: Validar los puntajes e intentos")
-            # Lógica para validar puntajes e intentos
+            torneo.validar_todos_los_intentos()
         elif opcion == "5":
             print("Opcion 5 seleccionada: Generar reporte Resumen por sudoku")
-            # Lógica para generar reporte resumen por sudoku
         elif opcion == "6":
             print("Opcion 6 seleccionada: Generar reporte Rendimiento de los jugadores")
-            # Lógica para generar reporte de rendimiento de los jugadores   
         elif opcion == "7":
             print("Opcion 7 seleccionada: Generar reporte TOP 10 mejores jugadores")
-            # Lógica para generar reporte de los top 10 mejores jugadores
         elif opcion == "8":
             print("Opcion 8 seleccionada: Finalizar tarea")
-            # Lógica para finalizar la tarea
             break
         else:
             print("Opción no válida. Por favor, seleccione una opción válida.")
