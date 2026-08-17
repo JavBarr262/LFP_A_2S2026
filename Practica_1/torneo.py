@@ -152,7 +152,21 @@ class Torneo:
             }
             return resultado
 
+    def estadisticas_jugadores(self):
+        resultado={}
+        for carnet, jugador in self.jugadores.items():
+            intentos_jugador=[i for i in self.intentos if i.carnet==carnet]
+            cantidad=len(intentos_jugador)
 
+            if cantidad>0:
+                validar_promedio=sum(i.porcentaje_valido for i in intentos_jugador)/cantidad
+                tiempo_promedio=sum(i.tiempo_segundos for i in intentos_jugador)/cantidad
+                resueltos=sum(1 for i in intentos_jugador if i.resuelto_correcto)
+            else:
+                validar_promedio=0.0
+                tiempo_promedio=0.0
+                resueltos=0
 
-
-    
+            resultado[carnet]={"nombre_completo": jugador.nombre_completo,"nivel": jugador.nivel, "cantidad_tableros": cantidad, "validar_promedio": round(validar_promedio,2),"tiempo_promedio":round(tiempo_promedio,2),"resuelto_correcto":resueltos}
+            return resultado
+            

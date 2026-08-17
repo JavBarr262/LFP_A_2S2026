@@ -37,3 +37,17 @@ def generar_rep_sudoku(estadisticas, ruta_salida):
 
     with open(ruta_salida,"w",encoding="utf-8") as archivo:
         archivo.write("".join(html))
+
+def generar_rep_jugador(estadisticas, ruta_salida):
+    html=[encabezado("Reporte renfimiento jugadores")]
+    html.append("<table>")
+    html.append("<tr><th>Carnet</th><th>Nombre Completo</th><th>Nivel</th>" "<th>Tableros Intentados</th><th>% Validar Promedio</th>" "<th>Tiempo Promedio (s)</th><th>Resueltos Perfectamente</th></tr>")
+
+    for carnet in sorted(estadisticas.keys()):
+        datos= estadisticas[carnet]
+        html.append( "<tr>" f"<td>{carnet}</td>" f"<td>{datos['nombre_completo']}</td>" f"<td>{datos['nivel']}</td>" f"<td>{datos['cantidad_tableros']}</td>" f"<td>{datos['validar_promedio']}%</td>" f"<td>{datos['tiempo_promedio']}</td>" f"<td>{datos['resuelto_correcto']}</td>" "</tr>")
+    html.append("/table")
+    html.append(pie_pagina())
+
+    with open(ruta_salida, "w", encoding="utf=8") as archivo:
+        archivo.write("".join(html))
