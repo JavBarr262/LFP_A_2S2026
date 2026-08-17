@@ -1,4 +1,4 @@
-from clases import Tablero, Jugador
+from clases import Tablero, Jugador, Intento
 from validaciones import val_intento
 
 class Torneo:
@@ -74,6 +74,42 @@ class Torneo:
                 print(f"error en linea {numero_linea} no se pudo crear el jugador{e}")
 
         print(f"Jugadores cargados {cargados} desde {ruta}")
+
+    def cargar_intentos(self, ruta):
+        try:
+            with open(ruta,"r", encoding="utf-8") as archivo:
+                lineas=archivo.readlines()
+        except FileNotFoundError:
+            print(f"no se encontro el acrhivo {ruta}")
+            return
+        except OSError as e:
+            print(f"error al abrir el archivo {ruta} {e}")
+            return
+
+        self.intentos=[]
+        cargados=0
+        for numero_linea, linea in enumerate(lineas, start=1):
+            linea=linea.strip()
+            if not linea:
+                continue
+            partes=linea.split(",")
+            if len(partes) !=5:
+                print(f"error en linea {numero_linea} formato incorrecto en {linea}")
+                continue
+
+            carnet, id_sudoku,solucion, tiempo_segundos, fecha=partes
+            solucion=solucion.strip()
+            if len(solucion) != 81 or not solucion.isdigit():
+                print(f"error en linea {numero_linea} la solucion no tiene 81 digitos validos")
+                continue
+            try:
+                intento=Intento(carnet, id_sudoku, solucion, tiempo_segundos, fecha)
+                self.intentos.append(intento)
+                cargados+=1
+            except ValueError as e:
+                print(f"erro en linea {numero_linea} no se pudo crear intento {e}")
+
+        print(f"intetnos cargados={cargados} desde {ruta}")
 
 
     
