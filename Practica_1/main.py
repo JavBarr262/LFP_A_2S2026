@@ -44,10 +44,12 @@ def menu():
             torneo.cargar_sudokus(ruta)
         elif opcion == "2":
             print("Opcion 2 seleccionada: Subir datos de los jugadores")
-
+            ruta= definir_ruta("datos/jugadores.lfp")
+            torneo.cargar_jugadores(ruta)
         elif opcion == "3":
             print("Opcion 3 seleccionada: Subir datos de los intentos")
-
+            ruta= definir_ruta("datos/intentos.lfp")
+            torneo.cargar_intentos(ruta)
         elif opcion == "4":
             print("Opcion  4 seleccionada: Validar los puntajes e intentos")
             torneo.validar_todos_los_intentos()
