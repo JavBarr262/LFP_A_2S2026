@@ -58,7 +58,7 @@ def val_intento(tablero,intento):
     intento.porcentaje_valido= round((grupos_totales_validos/27)*100,2)
 
     intento.resuelto_correcto=(
-        intento.porcentacje_certeza==100 and intento.pistas_correctas
+        intento.porcentaje_valido==100.0 and intento.pistas_correctas
     )
 
     return intento

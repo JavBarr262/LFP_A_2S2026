@@ -52,7 +52,7 @@ def menu():
             torneo.cargar_intentos(ruta)
         elif opcion == "4":
             print("Opcion  4 seleccionada: Validar los puntajes e intentos")
-            torneo.validar_todos_los_intentos()
+            torneo.validar_intentos()
         elif opcion == "5":
             print("Opcion 5 seleccionada: Generar reporte Resumen por sudoku")
         elif opcion == "6":

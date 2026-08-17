@@ -112,4 +112,26 @@ class Torneo:
         print(f"intetnos cargados={cargados} desde {ruta}")
 
 
+    def validar_intentos(self):
+        if not self.sudokus:
+            print("Primero de cargar un archivo de sudokus ")
+            return
+        if not self.intentos:
+            print("Primero debe cargar un archivo de intentos")
+            return
+        validados=0
+        sin_sudoku=0
+        for intento in self.intentos:
+            tablero = self.sudokus.get(intento.id_sudoku)
+            if tablero is None:
+                sin_sudoku+=1
+                continue
+            val_intento(tablero, intento)
+            validados+=1
+        print(f"validacion correcta {validados} inteno(s)")
+        if sin_sudoku:
+            print(f"{sin_sudoku} inteto(s) no se pudo validar sudoku sin existir")
+
+
+
     
