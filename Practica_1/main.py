@@ -2,7 +2,7 @@
 
 import os
 from torneo import Torneo
-from validaciones import val_intento
+from reportes import generar_rep_sudoku
 
 carpeta_reportes="reportes"
 
@@ -55,6 +55,13 @@ def menu():
             torneo.validar_intentos()
         elif opcion == "5":
             print("Opcion 5 seleccionada: Generar reporte Resumen por sudoku")
+            if not torneo.sudokus:
+                print("Debe cargar y verificar un archivo antes de generar el reporte")
+                continue
+            salida_ruta=os.path.join(carpeta_reportes,"reporte_resumen.html")
+            estadisticas=torneo.estadisticas_sudoku()
+            generar_rep_sudoku(estadisticas,salida_ruta)
+            print(f"reporte generado en {salida_ruta}")
         elif opcion == "6":
             print("Opcion 6 seleccionada: Generar reporte Rendimiento de los jugadores")
         elif opcion == "7":

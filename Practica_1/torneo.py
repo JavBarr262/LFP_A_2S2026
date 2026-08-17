@@ -133,5 +133,26 @@ class Torneo:
             print(f"{sin_sudoku} inteto(s) no se pudo validar sudoku sin existir")
 
 
+    def estadisticas_sudoku(self):
+        resultado={}
+        for id_sudoku, tablero in self.sudokus.items():
+            intentos_tablero=[i for i in self.intentos if i.id_sudoku==id_sudoku]
+            cantidad=len(intentos_tablero)
+
+            if cantidad>0:
+                tiempo_promedio=sum(i.tiempo_segundos for i in intentos_tablero)/cantidad
+                resueltos=sum(1 for i in intentos_tablero if i.resuelto_correctamente)
+                tasa_exito=(resueltos/cantidad)*100
+            else:
+                tiempo_promedio=0.0
+                tasa_exito=0.0
+
+            resultado[id_sudoku]={
+                "dificultad":tablero.dificultad,"cantidad_intentos":cantidad, "tiempo_promedio":round(tiempo_promedio,2), "tasa_exito":round(tasa_exito,2)
+            }
+            return resultado
+
+
+
 
     
