@@ -23,16 +23,9 @@ def definir_ruta(ruta_predeterminada):
     ruta = input(f"Introduzca la ruta del archivo (por defecto: {ruta_predeterminada}): ").strip()
     return ruta if ruta else ruta_predeterminada
 
-def Validar_carpeta_reportes():
-    carpeta_reportes = "reportes"
-    if not os.path.exists(carpeta_reportes):
-        os.makedirs(carpeta_reportes)
-        print(f"Se ha creado la carpeta '{carpeta_reportes}' para los reportes.")
-    else:
-        print(f"La carpeta '{carpeta_reportes}' ya existe.")
+
 
 def menu():
-    Validar_carpeta_reportes()
     torneo=Torneo()
     while True:
         mostrar_menu()
