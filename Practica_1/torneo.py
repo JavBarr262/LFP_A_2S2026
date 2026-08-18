@@ -169,4 +169,14 @@ class Torneo:
 
             resultado[carnet]={"nombre_completo": jugador.nombre_completo,"nivel": jugador.nivel, "cantidad_tableros": cantidad, "validar_promedio": round(validar_promedio,2),"tiempo_promedio":round(tiempo_promedio,2),"resuelto_correcto":resueltos}
             return resultado
-            
+
+    def top10_mejores(self):
+        resueltos=[i for i in self.intentos if i.resuelto_correctamente]
+        resueltos_ordenados=sorted(resueltos, key=lambda i: i.tiempo_segundos)
+
+        resultado=[]
+        for posicion, intento in enumerate(resueltos_ordenados[:10],start=1):
+            jugador=self.jugadores.get(intento.carnet)
+            tablero=self.sudokus.get(intento.id_sudoku)
+            resultado.append({"posicion": posicion, "carnet": intento.carnet, "nombre_completo": jugador.nombre_completo if jugador else "desconocido", "id_sudoku": intento.id_sudoku, "dificultad": tablero.dificultad if tablero else "N/A", "tiempo": intento.tiempo_segundos })
+        return resultado

@@ -2,7 +2,7 @@
 
 import os
 from torneo import Torneo
-from reportes import generar_rep_sudoku, generar_rep_jugador
+from reportes import generar_rep_sudoku, generar_rep_jugador, generar_rep_top10
 
 carpeta_reportes="reportes"
 
@@ -73,6 +73,13 @@ def menu():
             print(f"reporte generado en {salida_ruta}")
         elif opcion == "7":
             print("Opcion 7 seleccionada: Generar reporte TOP 10 mejores jugadores")
+            if not torneo.sudokus:
+                print("Debe cargar y verificar un archivo antes de generar el reporte")
+                continue
+            salida_ruta=os.path.join(carpeta_reportes,"top10_mejores_tiempos.html")
+            estadisticas=torneo.top10_mejores()
+            generar_rep_top10(estadisticas,salida_ruta)
+            print(f"reporte generado en {salida_ruta}")            
         elif opcion == "8":
             print("Opcion 8 seleccionada: Finalizar tarea")
             break
