@@ -51,7 +51,7 @@ def generar_rep_jugador(estadisticas, ruta_salida):
 
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write("".join(html))
-
+        
 def generar_rep_top10(mejores10, ruta_salida):
     html=[encabezado("Top 10 mejores tiempos")]
     html.append("<table>")
