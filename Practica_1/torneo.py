@@ -46,7 +46,7 @@ class Torneo:
 
     def cargar_jugadores(self, ruta):
         try:
-            with open(ruta, "r", encoding="utf=8") as archivo:
+            with open(ruta, "r", encoding="utf-8") as archivo:
              lineas=archivo.readlines()
         except FileNotFoundError:
               print(f"No se encontro el archivo {ruta}")
@@ -150,7 +150,7 @@ class Torneo:
             resultado[id_sudoku]={
                 "dificultad":tablero.dificultad,"cantidad_intentos":cantidad, "tiempo_promedio":round(tiempo_promedio,2), "tasa_exito":round(tasa_exito,2)
             }
-            return resultado
+        return resultado
 
     def estadisticas_jugadores(self):
         resultado={}
@@ -159,16 +159,16 @@ class Torneo:
             cantidad=len(intentos_jugador)
 
             if cantidad>0:
-                validar_promedio=sum(i.porcentaje_valido for i in intentos_jugador)/cantidad
+                validar_promedio=sum(i.porcentaje_validez for i in intentos_jugador)/cantidad
                 tiempo_promedio=sum(i.tiempo_segundos for i in intentos_jugador)/cantidad
-                resueltos=sum(1 for i in intentos_jugador if i.resuelto_correcto)
+                resueltos=sum(1 for i in intentos_jugador if i.resuelto_correctamente)
             else:
                 validar_promedio=0.0
                 tiempo_promedio=0.0
                 resueltos=0
 
             resultado[carnet]={"nombre_completo": jugador.nombre_completo,"nivel": jugador.nivel, "cantidad_tableros": cantidad, "validar_promedio": round(validar_promedio,2),"tiempo_promedio":round(tiempo_promedio,2),"resuelto_correcto":resueltos}
-            return resultado
+        return resultado
 
     def top10_mejores(self):
         resueltos=[i for i in self.intentos if i.resuelto_correctamente]

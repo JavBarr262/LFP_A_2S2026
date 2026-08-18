@@ -23,7 +23,7 @@ class Intento:
             for columna in range(9):
                 indice=fila*9+columna
                 fila_valores.append(int(cadena[indice]))
-                matriz.append(fila_valores)
+            matriz.append(fila_valores)
         return matriz
 
     def __repr__(self):

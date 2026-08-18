@@ -31,8 +31,7 @@ def validar_pistas(tablero, intento):
 
 def val_intento(tablero,intento):
     matriz=intento.matriz_solucion
-
-    intento.pistas_correctas=validar_pistas(tablero,intento)
+    intento.pistas_respetadas=validar_pistas(tablero,intento)
 
     filas_validas=0
     for indice_fila in range(9):
@@ -52,13 +51,11 @@ def val_intento(tablero,intento):
 
     intento.filas_validas=filas_validas
     intento.columnas_validas=columnas_validas
-    intento.cuadrante_validas=cuadrante_validas
+    intento.cajas_validas=cuadrante_validas 
 
     grupos_totales_validos = filas_validas+columnas_validas+cuadrante_validas
-    intento.porcentaje_valido= round((grupos_totales_validos/27)*100,2)
+    intento.porcentaje_validez= round((grupos_totales_validos/27)*100,2)  
 
-    intento.resuelto_correcto=(
-        intento.porcentaje_valido==100.0 and intento.pistas_correctas
-    )
+    intento.resuelto_correctamente=(intento.porcentaje_validez==100.0 and intento.pistas_respetadas)
 
     return intento

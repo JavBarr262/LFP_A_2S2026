@@ -64,7 +64,7 @@ def menu():
             print(f"reporte generado en {salida_ruta}")
         elif opcion == "6":
             print("Opcion 6 seleccionada: Generar reporte Rendimiento de los jugadores")
-            if not torneo.sudokus:
+            if not torneo.jugadores:
                 print("Debe cargar y verificar un archivo antes de generar el reporte")
                 continue
             salida_ruta=os.path.join(carpeta_reportes,"reporte_resumen_jugadores.html")
@@ -73,13 +73,15 @@ def menu():
             print(f"reporte generado en {salida_ruta}")
         elif opcion == "7":
             print("Opcion 7 seleccionada: Generar reporte TOP 10 mejores jugadores")
-            if not torneo.sudokus:
+            if not torneo.intentos:
                 print("Debe cargar y verificar un archivo antes de generar el reporte")
                 continue
+            if all(i.pistas_respetadas is None for i in torneo.intentos):
+                print("Debe validar los intentos antes de generar el reporte ")
             salida_ruta=os.path.join(carpeta_reportes,"top10_mejores_tiempos.html")
             estadisticas=torneo.top10_mejores()
             generar_rep_top10(estadisticas,salida_ruta)
-            print(f"reporte generado en {salida_ruta}")            
+            print(f"reporte generado en {salida_ruta}")                       
         elif opcion == "8":
             print("Opcion 8 seleccionada: Finalizar tarea")
             break
