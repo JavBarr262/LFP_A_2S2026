@@ -180,3 +180,6 @@ class Torneo:
             tablero=self.sudokus.get(intento.id_sudoku)
             resultado.append({"posicion": posicion, "carnet": intento.carnet, "nombre_completo": jugador.nombre_completo if jugador else "desconocido", "id_sudoku": intento.id_sudoku, "dificultad": tablero.dificultad if tablero else "N/A", "tiempo": intento.tiempo_segundos })
         return resultado
+
+
+
