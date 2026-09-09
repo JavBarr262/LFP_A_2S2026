@@ -4,7 +4,7 @@ class Intento:
         self.carnet=int(carnet)
         self.id_sudoku=int(id_sudoku)
         self.cadena_solucion=solucion
-        self.tiempo_segundos=int(tiempo_segundos)
+        self.tiempo_segundos=float(tiempo_segundos)/60 #conversion a minutos  
         self.fecha=fecha.strip()
         self.matriz_solucion=self._contruir_matriz(solucion)
 

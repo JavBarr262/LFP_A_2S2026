@@ -1,4 +1,3 @@
-"Menu principal"
 
 import os
 from torneo import Torneo

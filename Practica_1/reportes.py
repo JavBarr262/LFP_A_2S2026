@@ -1,4 +1,4 @@
-ESTILO_CSS = """
+formato = """
 <style>
     table { border-collapse: collapse; }
     th, td { border: 1px solid #333; padding: 6px 10px; text-align: left; }
@@ -11,7 +11,7 @@ def encabezado(titulo):
     <head>
         <meta charset="UTF-8">
         <title>{titulo}</title>
-        {ESTILO_CSS}
+        {formato}
     </head>
     <body>
          <h1>{titulo}</h1>
@@ -55,14 +55,13 @@ def generar_rep_jugador(estadisticas, ruta_salida):
 def generar_rep_top10(mejores10, ruta_salida):
     html=[encabezado("Top 10 mejores tiempos")]
     html.append("<table>")
-    html.append("<tr><th>Posicion</th><th>Carnet</th><th>Nombre completo</th><th>ID Sudoku</th><th>Dificultad</th><th>Tiempo (s)</th></tr>")
+    html.append("<tr><th>Posicion</th><th>Carnet</th><th>Nombre completo</th><th>ID Sudoku</th><th>Dificultad</th><th>Tiempo (minutos)</th></tr>")
 
     if not mejores10:
         html.append("<tr><td >No se han cargados intentos</td></tr>")
     else:
         for registro in mejores10:
             html.append("<tr>" f"<td>{registro['posicion']}</td>"  f"<td>{registro['carnet']}</td>" f"<td>{registro['nombre_completo']}</td>" f"<td>{registro['id_sudoku']}</td>" f"<td>{registro['dificultad']}</td>" f"<td>{registro['tiempo']}</td>" "</tr>")
-
     html.append("</table>")
     html.append(pie_pagina())
 
