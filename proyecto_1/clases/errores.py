@@ -49,7 +49,7 @@ class GestorErrores:
         def total_errores(self):
             return len(self._errores)
 
-        def obtener_erroer(self):
+        def obtener_errores(self):
             return list(self._errores)
 
         def limpiar(self):
