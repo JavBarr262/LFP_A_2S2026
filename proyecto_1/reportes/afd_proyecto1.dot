@@ -1,0 +1,66 @@
+digraph AFD_Proyecto1 {
+    rankdir=LR;
+    node [shape=circle, fontsize=10];
+    edge [fontsize=9];
+
+    q0 [label="q0\n(inicio)", shape=doublecircle, style=filled, fillcolor="#dfe9f5"];
+
+    // ---- Comentarios ----
+    q0 -> qC1 [label="#"];
+    qC1 -> qC2 [label="#"];
+    qC2 -> qC2 [label="cualquier char != \\n"];
+    qC2 -> qACEPTA_COMENTARIO [label="\\n / EOF"];
+    qACEPTA_COMENTARIO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                         label="ACEPTA\nCOMENTARIO_LINEA"];
+
+    // ---- Cadenas ----
+    q0 -> qS1 [label="\""];
+    qS1 -> qS1 [label="char != \" ,  != \\n"];
+    qS1 -> qACEPTA_CADENA [label="\""];
+    qS1 -> qERROR_CADENA [label="\\n / EOF"];
+    qACEPTA_CADENA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                    label="ACEPTA\nCADENA"];
+    qERROR_CADENA [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
+                   label="ERROR\nCADENA_SIN_CERRAR"];
+
+    // ---- Numeros / Hora ----
+    q0 -> qN1 [label="digito"];
+    qN1 -> qN1 [label="digito"];
+    qN1 -> qACEPTA_ENTERO [label="otro (no ':')"];
+    qACEPTA_ENTERO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                    label="ACEPTA\nENTERO"];
+    qN1 -> qH1 [label=":"];
+    qH1 -> qH1 [label="digito"];
+    qH1 -> qACEPTA_HORA [label="otro"];
+    qACEPTA_HORA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                  label="ACEPTA HORA\n(valida rango 06:00-21:00)"];
+
+    // ---- Identificadores / Palabras reservadas / Codigo ----
+    q0 -> qA1 [label="letra"];
+    qA1 -> qA1 [label="letra | digito"];
+    qA1 -> qCOD1 [label="-"];
+    qCOD1 -> qCOD1 [label="digito"];
+    qCOD1 -> qACEPTA_CODIGO [label="otro (>=1 digito leido)"];
+    qCOD1 -> qERROR_CODIGO [label="otro (0 digitos leidos)"];
+    qACEPTA_CODIGO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                    label="ACEPTA\nCODIGO"];
+    qERROR_CODIGO [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
+                   label="ERROR\nCODIGO_MAL_FORMADO"];
+
+    qA1 -> qACEPTA_PALABRA [label="otro"];
+    qACEPTA_PALABRA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                     label="ACEPTA\n(clasificar: RESERVADA / DIA /\nCATEGORIA / IDENTIFICADOR)"];
+
+    // ---- Simbolos ----
+    q0 -> qACEPTA_SIMBOLO [label="{ } [ ] : , ;"];
+    qACEPTA_SIMBOLO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
+                     label="ACEPTA\nSIMBOLO"];
+
+    // ---- Espacios (delimitadores silenciosos) ----
+    q0 -> q0 [label="espacio | \\n | tab (no genera token)"];
+
+    // ---- Caracter no reconocido ----
+    q0 -> qERROR_CHAR [label="otro caracter"];
+    qERROR_CHAR [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
+                 label="ERROR\nCARACTER_NO_RECONOCIDO"];
+}

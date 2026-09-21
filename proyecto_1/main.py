@@ -23,7 +23,7 @@ def ejecutar_consola(ruta_archivo):
 
     errores = gestor_errores.obtener_errores()
 
-    carpeta_salida = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output", "reportes")
+    carpeta_salida = os.path.join(os.path.dirname(os.path.abspath(__file__)),"reportes")
     generador = GeneradorReportes(horario, tokens, errores, carpeta_salida)
     rutas = generador.generar_todos()
 
@@ -50,11 +50,7 @@ def ejecutar_consola(ruta_archivo):
             ))
 
 def main():
-    if len(sys.argv) > 1:
         ejecutar_consola(sys.argv[1])
-    else:
-        from gui import main as gui_main
-        gui_main()
 
 
 if __name__ == "__main__":
