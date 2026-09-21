@@ -50,7 +50,11 @@ def ejecutar_consola(ruta_archivo):
             ))
 
 def main():
+    if len(sys.argv) > 1:
         ejecutar_consola(sys.argv[1])
+    else:
+        from gui import main as gui_main
+        gui_main()
 
 
 if __name__ == "__main__":
