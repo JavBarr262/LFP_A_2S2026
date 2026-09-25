@@ -124,7 +124,6 @@ class GeneradorReportes:
                                 "\n".join(partes))
         return self._guardar("reporte_horario_semanal.html", html)
 
-    # Reporte 2: carga de horas por catedratico, coloreada por nivel.
     def generar_reporte_carga_catedraticos(self):
         minutos_por_catedratico = {}
         for c in self.horario.clases:
