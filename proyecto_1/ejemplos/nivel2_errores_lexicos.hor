@@ -1,0 +1,12 @@
+## Caso 2: varios errores lexicos en un solo archivo (modo panico: debe seguir analizando tras cada error)
+HORARIO {
+    CURSOS {
+        curso: "Bases de Datos 2 sin cerrar
+        curso: "Curso valido" [codigo: "0812-BD2", creditos: 5],
+    };
+    CLASES {
+        clase: "LFP-0796" con "DOC-001" en "A-101" [dia: DOMINGO, inicio: 22:30, fin: 23:50, seccion: "N"],
+    };
+    extra: @simbolo,
+};
+## Este comentario final llega hasta EOF con simbolos raros @ % ~ y NO debe reportarse como error

@@ -5,6 +5,7 @@ digraph AFD_Proyecto1 {
 
     q0 [label="q0\n(inicio)", shape=doublecircle, style=filled, fillcolor="#dfe9f5"];
 
+    // ---- Comentarios ----
     q0 -> qC1 [label="#"];
     qC1 -> qC2 [label="#"];
     qC2 -> qC2 [label="cualquier char != \\n"];
@@ -12,6 +13,7 @@ digraph AFD_Proyecto1 {
     qACEPTA_COMENTARIO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                          label="ACEPTA\nCOMENTARIO_LINEA"];
 
+    // ---- Cadenas ----
     q0 -> qS1 [label="\""];
     qS1 -> qS1 [label="char != \" ,  != \\n"];
     qS1 -> qACEPTA_CADENA [label="\""];
@@ -21,6 +23,7 @@ digraph AFD_Proyecto1 {
     qERROR_CADENA [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
                    label="ERROR\nCADENA_SIN_CERRAR"];
 
+    // ---- Numeros / Hora ----
     q0 -> qN1 [label="digito"];
     qN1 -> qN1 [label="digito"];
     qN1 -> qACEPTA_ENTERO [label="otro (no ':')"];
@@ -32,6 +35,7 @@ digraph AFD_Proyecto1 {
     qACEPTA_HORA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                   label="ACEPTA HORA\n(valida rango 06:00-21:00)"];
 
+    // ---- Identificadores / Palabras reservadas / Codigo ----
     q0 -> qA1 [label="letra"];
     qA1 -> qA1 [label="letra | digito"];
     qA1 -> qCOD1 [label="-"];
@@ -47,12 +51,15 @@ digraph AFD_Proyecto1 {
     qACEPTA_PALABRA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                      label="ACEPTA\n(clasificar: RESERVADA / DIA /\nCATEGORIA / IDENTIFICADOR)"];
 
+    // ---- Simbolos ----
     q0 -> qACEPTA_SIMBOLO [label="{ } [ ] : , ;"];
     qACEPTA_SIMBOLO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                      label="ACEPTA\nSIMBOLO"];
 
+    // ---- Espacios (delimitadores silenciosos) ----
     q0 -> q0 [label="espacio | \\n | tab (no genera token)"];
 
+    // ---- Caracter no reconocido ----
     q0 -> qERROR_CHAR [label="otro caracter"];
     qERROR_CHAR [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
                  label="ERROR\nCARACTER_NO_RECONOCIDO"];

@@ -1,0 +1,14 @@
+## Caso 3: choque de horario (mismo catedratico, mismo dia y bloque traslapado, distinta aula)
+HORARIO {
+    CATEDRATICOS {
+        catedratico: "Otto Rodriguez" [codigo: "DOC-001", categoria: TITULAR],
+    };
+    AULAS {
+        aula: "A-101" [capacidad: 40, edificio: "T-3"],
+        aula: "LAB-3" [capacidad: 25, edificio: "T-5"],
+    };
+    CLASES {
+        clase: "LFP-0796" con "DOC-001" en "A-101" [dia: LUNES, inicio: 07:00, fin: 08:40, seccion: "N"],
+        clase: "BD2-0812" con "DOC-001" en "LAB-3" [dia: LUNES, inicio: 07:00, fin: 08:40, seccion: "A"],
+    };
+};
