@@ -258,7 +258,6 @@ class GeneradorReportes:
 
     q0 [label="q0\\n(inicio)", shape=doublecircle, style=filled, fillcolor="#dfe9f5"];
 
-    // ---- Comentarios ----
     q0 -> qC1 [label="#"];
     qC1 -> qC2 [label="#"];
     qC2 -> qC2 [label="cualquier char != \\\\n"];
@@ -266,7 +265,6 @@ class GeneradorReportes:
     qACEPTA_COMENTARIO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                          label="ACEPTA\\nCOMENTARIO_LINEA"];
 
-    // ---- Cadenas ----
     q0 -> qS1 [label="\\""];
     qS1 -> qS1 [label="char != \\" ,  != \\\\n"];
     qS1 -> qACEPTA_CADENA [label="\\""];
@@ -276,7 +274,6 @@ class GeneradorReportes:
     qERROR_CADENA [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
                    label="ERROR\\nCADENA_SIN_CERRAR"];
 
-    // ---- Numeros / Hora ----
     q0 -> qN1 [label="digito"];
     qN1 -> qN1 [label="digito"];
     qN1 -> qACEPTA_ENTERO [label="otro (no ':')"];
@@ -288,7 +285,6 @@ class GeneradorReportes:
     qACEPTA_HORA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                   label="ACEPTA HORA\\n(valida rango 06:00-21:00)"];
 
-    // ---- Identificadores / Palabras reservadas / Codigo ----
     q0 -> qA1 [label="letra"];
     qA1 -> qA1 [label="letra | digito"];
     qA1 -> qCOD1 [label="-"];
@@ -304,21 +300,49 @@ class GeneradorReportes:
     qACEPTA_PALABRA [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                      label="ACEPTA\\n(clasificar: RESERVADA / DIA /\\nCATEGORIA / IDENTIFICADOR)"];
 
-    // ---- Simbolos ----
     q0 -> qACEPTA_SIMBOLO [label="{ } [ ] : , ;"];
     qACEPTA_SIMBOLO [shape=doublecircle, style=filled, fillcolor="#c8e6c9",
                      label="ACEPTA\\nSIMBOLO"];
 
-    // ---- Espacios (delimitadores silenciosos) ----
     q0 -> q0 [label="espacio | \\\\n | tab (no genera token)"];
 
-    // ---- Caracter no reconocido ----
     q0 -> qERROR_CHAR [label="otro caracter"];
     qERROR_CHAR [shape=doublecircle, style=filled, fillcolor="#ffcdd2",
                  label="ERROR\\nCARACTER_NO_RECONOCIDO"];
 }
 """
         return self._guardar("afd_proyecto1.dot", dot)
+
+    def generar_diagrama_afd_html(self):
+        ruta_dot = self.generar_dot_afd()
+        with open(ruta_dot, "r", encoding="utf-8") as f:
+            codigo_dot = f.read()
+
+        try:
+            import graphviz
+            fuente = graphviz.Source(codigo_dot)
+            svg_bytes = fuente.pipe(format="svg")
+            svg_texto = svg_bytes.decode("utf-8")
+            inicio = svg_texto.find("<svg")
+            cuerpo = "<div style='overflow:auto; border:1px solid #999; padding:10px;'>" \
+                     + svg_texto[inicio:] + "</div>"
+        except Exception as error:
+            cuerpo = (
+                "<p><b>No se pudo renderizar el diagrama automaticamente</b> "
+                "({}).</p>"
+                "<p>Instala Graphviz (<a href='https://graphviz.org/download/'>"
+                "graphviz.org/download</a>) y asegurate de que el comando "
+                "<code>dot</code> este en el PATH del sistema, o abre el "
+                "archivo <code>afd_proyecto1.dot</code> con cualquier visor "
+                "de Graphviz (por ejemplo "
+                "<a href='https://dreampuf.github.io/GraphvizOnline/'>"
+                "GraphvizOnline</a>).</p>"
+                "<h2>Codigo DOT</h2>"
+                "<pre style='background:#f4f4f4; padding:10px; overflow:auto;'>{}</pre>"
+            ).format(_escape(str(error)), _escape(codigo_dot))
+
+        html = _envoltorio_html("Diagrama del AFD (renderizado con Graphviz)", cuerpo)
+        return self._guardar("diagrama_afd.html", html)
 
     def generar_todos(self):
         return {
@@ -327,4 +351,5 @@ class GeneradorReportes:
             "estadistico_general": self.generar_reporte_estadistico(),
             "errores_lexicos": self.generar_reporte_errores(),
             "afd_dot": self.generar_dot_afd(),
+            "diagrama_afd": self.generar_diagrama_afd_html(),
         }

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama del AFD (renderizado con Graphviz)</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; color: #222; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 6px; }
+h2 { font-size: 16px; margin-top: 24px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+th, td { border: 1px solid #999; padding: 6px 8px; font-size: 13px; text-align: left; }
+th { background: #ddd; }
+.verde { background: #cfc; }
+.rojo { background: #fcc; }
+.azul { background: #ccf; }
+.naranja { background: #fe9; }
+ul { font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>Diagrama del AFD (renderizado con Graphviz)</h1>
+<div style='overflow:auto; border:1px solid #999; padding:10px;'><svg width="1052pt" height="1015pt"
+ viewBox="0.00 0.00 1052.00 1015.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1011.17)">
+<title>AFD_Proyecto1</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1011.17 1047.89,-1011.17 1047.89,4 -4,4"/>
+<!-- q0 -->
+<g id="node1" class="node">
+<title>q0</title>
+<ellipse fill="#dfe9f5" stroke="black" cx="60" cy="-417.73" rx="32.53" ry="32.53"/>
+<ellipse fill="none" stroke="black" cx="60" cy="-417.73" rx="36.53" ry="36.53"/>
+<text xml:space="preserve" text-anchor="middle" x="60" y="-419.48" font-family="Times New Roman,serif" font-size="10.00">q0</text>
+<text xml:space="preserve" text-anchor="middle" x="60" y="-408.23" font-family="Times New Roman,serif" font-size="10.00">(inicio)</text>
+</g>
+<!-- q0&#45;&gt;q0 -->
+<g id="edge23" class="edge">
+<title>q0&#45;&gt;q0</title>
+<path fill="none" stroke="black" d="M45.7,-451.81C45.7,-463.17 50.47,-472.25 60,-472.25 66.11,-472.25 70.26,-468.53 72.45,-462.86"/>
+<polygon fill="black" stroke="black" points="75.86,-463.74 74.05,-453.3 68.95,-462.59 75.86,-463.74"/>
+<text xml:space="preserve" text-anchor="middle" x="60" y="-474.2" font-family="Times New Roman,serif" font-size="9.00">espacio | \n | tab (no genera token)</text>
+</g>
+<!-- qC1 -->
+<g id="node2" class="node">
+<title>qC1</title>
+<ellipse fill="none" stroke="black" cx="294.75" cy="-830.73" rx="19.67" ry="19.67"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-826.85" font-family="Times New Roman,serif" font-size="10.00">qC1</text>
+</g>
+<!-- q0&#45;&gt;qC1 -->
+<g id="edge1" class="edge">
+<title>q0&#45;&gt;qC1</title>
+<path fill="none" stroke="black" d="M67.3,-453.75C79.59,-516.2 111.41,-646.51 176.03,-736.73 200.5,-770.89 240.63,-799.2 267.12,-815.54"/>
+<polygon fill="black" stroke="black" points="265.21,-818.48 275.58,-820.63 268.81,-812.48 265.21,-818.48"/>
+<text xml:space="preserve" text-anchor="middle" x="136.28" y="-707.99" font-family="Times New Roman,serif" font-size="9.00">#</text>
+</g>
+<!-- qS1 -->
+<g id="node5" class="node">
+<title>qS1</title>
+<ellipse fill="none" stroke="black" cx="294.75" cy="-680.73" rx="18.79" ry="18.79"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-676.85" font-family="Times New Roman,serif" font-size="10.00">qS1</text>
+</g>
+<!-- q0&#45;&gt;qS1 -->
+<g id="edge5" class="edge">
+<title>q0&#45;&gt;qS1</title>
+<path fill="none" stroke="black" d="M85.03,-444.88C131.19,-497.04 231.43,-610.31 274,-658.41"/>
+<polygon fill="black" stroke="black" points="271.23,-660.56 280.48,-665.73 276.47,-655.92 271.23,-660.56"/>
+<text xml:space="preserve" text-anchor="middle" x="136.28" y="-527.62" font-family="Times New Roman,serif" font-size="9.00">&quot;</text>
+</g>
+<!-- qN1 -->
+<g id="node8" class="node">
+<title>qN1</title>
+<ellipse fill="none" stroke="black" cx="294.75" cy="-474.73" rx="20.12" ry="20.12"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-470.85" font-family="Times New Roman,serif" font-size="10.00">qN1</text>
+</g>
+<!-- q0&#45;&gt;qN1 -->
+<g id="edge9" class="edge">
+<title>q0&#45;&gt;qN1</title>
+<path fill="none" stroke="black" d="M95.85,-426.26C141.4,-437.42 220.46,-456.78 263.58,-467.34"/>
+<polygon fill="black" stroke="black" points="262.71,-470.73 273.26,-469.71 264.38,-463.93 262.71,-470.73"/>
+<text xml:space="preserve" text-anchor="middle" x="136.28" y="-443.07" font-family="Times New Roman,serif" font-size="9.00">digito</text>
+</g>
+<!-- qA1 -->
+<g id="node12" class="node">
+<title>qA1</title>
+<ellipse fill="none" stroke="black" cx="294.75" cy="-387.73" rx="20.12" ry="20.12"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-383.85" font-family="Times New Roman,serif" font-size="10.00">qA1</text>
+</g>
+<!-- q0&#45;&gt;qA1 -->
+<g id="edge15" class="edge">
+<title>q0&#45;&gt;qA1</title>
+<path fill="none" stroke="black" d="M96.6,-413.14C142.14,-407.27 220.22,-397.21 263.19,-391.67"/>
+<polygon fill="black" stroke="black" points="263.6,-395.14 273.07,-390.39 262.7,-388.2 263.6,-395.14"/>
+<text xml:space="preserve" text-anchor="middle" x="136.28" y="-412.43" font-family="Times New Roman,serif" font-size="9.00">letra</text>
+</g>
+<!-- qACEPTA_SIMBOLO -->
+<g id="node17" class="node">
+<title>qACEPTA_SIMBOLO</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="294.75" cy="-302.73" rx="43.13" ry="43.13"/>
+<ellipse fill="none" stroke="black" cx="294.75" cy="-302.73" rx="47.13" ry="47.13"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-304.48" font-family="Times New Roman,serif" font-size="10.00">ACEPTA</text>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-293.23" font-family="Times New Roman,serif" font-size="10.00">SIMBOLO</text>
+</g>
+<!-- q0&#45;&gt;qACEPTA_SIMBOLO -->
+<g id="edge22" class="edge">
+<title>q0&#45;&gt;qACEPTA_SIMBOLO</title>
+<path fill="none" stroke="black" d="M92.61,-401.19C115.64,-389.22 147.66,-372.75 176.03,-358.73 197.28,-348.23 220.85,-336.94 241.28,-327.28"/>
+<polygon fill="black" stroke="black" points="242.74,-330.46 250.28,-323.03 239.75,-324.13 242.74,-330.46"/>
+<text xml:space="preserve" text-anchor="middle" x="136.28" y="-390.92" font-family="Times New Roman,serif" font-size="9.00">{ } [ ] : , ;</text>
+</g>
+<!-- qERROR_CHAR -->
+<g id="node18" class="node">
+<title>qERROR_CHAR</title>
+<ellipse fill="#ffcdd2" stroke="black" cx="294.75" cy="-118.73" rx="114.73" ry="114.73"/>
+<ellipse fill="none" stroke="black" cx="294.75" cy="-118.73" rx="118.73" ry="118.73"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-120.48" font-family="Times New Roman,serif" font-size="10.00">ERROR</text>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-109.23" font-family="Times New Roman,serif" font-size="10.00">CARACTER_NO_RECONOCIDO</text>
+</g>
+<!-- q0&#45;&gt;qERROR_CHAR -->
+<g id="edge24" class="edge">
+<title>q0&#45;&gt;qERROR_CHAR</title>
+<path fill="none" stroke="black" d="M79.82,-386.79C101.57,-351.77 139.13,-293.5 176.03,-246.73 184.89,-235.49 194.51,-224.02 204.3,-212.8"/>
+<polygon fill="black" stroke="black" points="206.83,-215.22 210.81,-205.4 201.58,-210.6 206.83,-215.22"/>
+<text xml:space="preserve" text-anchor="middle" x="136.28" y="-331.02" font-family="Times New Roman,serif" font-size="9.00">otro caracter</text>
+</g>
+<!-- qC2 -->
+<g id="node3" class="node">
+<title>qC2</title>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-919.73" rx="19.67" ry="19.67"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-915.85" font-family="Times New Roman,serif" font-size="10.00">qC2</text>
+</g>
+<!-- qC1&#45;&gt;qC2 -->
+<g id="edge2" class="edge">
+<title>qC1&#45;&gt;qC2</title>
+<path fill="none" stroke="black" d="M313.7,-836.87C347.62,-848.38 423.57,-873.65 488.48,-891.73 517.71,-899.87 551.46,-907.85 575.02,-913.19"/>
+<polygon fill="black" stroke="black" points="574.01,-916.55 584.54,-915.33 575.55,-909.72 574.01,-916.55"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-887.67" font-family="Times New Roman,serif" font-size="9.00">#</text>
+</g>
+<!-- qC2&#45;&gt;qC2 -->
+<g id="edge3" class="edge">
+<title>qC2&#45;&gt;qC2</title>
+<path fill="none" stroke="black" d="M587.39,-928.24C568.44,-941.14 574.51,-957.4 605.62,-957.4 630.65,-957.4 639.48,-946.87 632.09,-936.04"/>
+<polygon fill="black" stroke="black" points="634.62,-933.61 624.95,-929.28 629.81,-938.7 634.62,-933.61"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-959.35" font-family="Times New Roman,serif" font-size="9.00">cualquier char != \n</text>
+</g>
+<!-- qACEPTA_COMENTARIO -->
+<g id="node4" class="node">
+<title>qACEPTA_COMENTARIO</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="941.08" cy="-919.73" rx="83.44" ry="83.44"/>
+<ellipse fill="none" stroke="black" cx="941.08" cy="-919.73" rx="87.44" ry="87.44"/>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-921.48" font-family="Times New Roman,serif" font-size="10.00">ACEPTA</text>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-910.23" font-family="Times New Roman,serif" font-size="10.00">COMENTARIO_LINEA</text>
+</g>
+<!-- qC2&#45;&gt;qACEPTA_COMENTARIO -->
+<g id="edge4" class="edge">
+<title>qC2&#45;&gt;qACEPTA_COMENTARIO</title>
+<path fill="none" stroke="black" d="M625.5,-919.73C666.47,-919.73 765.97,-919.73 842.19,-919.73"/>
+<polygon fill="black" stroke="black" points="841.74,-923.23 851.74,-919.73 841.74,-916.23 841.74,-923.23"/>
+<text xml:space="preserve" text-anchor="middle" x="780.51" y="-921.68" font-family="Times New Roman,serif" font-size="9.00">\n / EOF</text>
+</g>
+<!-- qS1&#45;&gt;qS1 -->
+<g id="edge6" class="edge">
+<title>qS1&#45;&gt;qS1</title>
+<path fill="none" stroke="black" d="M277.19,-688.49C257.01,-701.17 262.87,-717.51 294.75,-717.51 320.66,-717.51 329.39,-706.72 320.92,-695.88"/>
+<polygon fill="black" stroke="black" points="323.33,-693.34 313.47,-689.48 318.78,-698.65 323.33,-693.34"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-719.46" font-family="Times New Roman,serif" font-size="9.00">char != &quot; , &#160;!= \n</text>
+</g>
+<!-- qACEPTA_CADENA -->
+<g id="node6" class="node">
+<title>qACEPTA_CADENA</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="605.62" cy="-836.73" rx="41.54" ry="41.54"/>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-836.73" rx="45.54" ry="45.54"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-838.48" font-family="Times New Roman,serif" font-size="10.00">ACEPTA</text>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-827.23" font-family="Times New Roman,serif" font-size="10.00">CADENA</text>
+</g>
+<!-- qS1&#45;&gt;qACEPTA_CADENA -->
+<g id="edge7" class="edge">
+<title>qS1&#45;&gt;qACEPTA_CADENA</title>
+<path fill="none" stroke="black" d="M311.85,-689.61C344.76,-707.68 422.2,-749.81 488.48,-782.73 509.51,-793.17 532.95,-804.19 553.24,-813.53"/>
+<polygon fill="black" stroke="black" points="551.6,-816.63 562.15,-817.61 554.52,-810.27 551.6,-816.63"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-774.07" font-family="Times New Roman,serif" font-size="9.00">&quot;</text>
+</g>
+<!-- qERROR_CADENA -->
+<g id="node7" class="node">
+<title>qERROR_CADENA</title>
+<ellipse fill="#ffcdd2" stroke="black" cx="605.62" cy="-680.73" rx="88.74" ry="88.74"/>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-680.73" rx="92.74" ry="92.74"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-682.48" font-family="Times New Roman,serif" font-size="10.00">ERROR</text>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-671.23" font-family="Times New Roman,serif" font-size="10.00">CADENA_SIN_CERRAR</text>
+</g>
+<!-- qS1&#45;&gt;qERROR_CADENA -->
+<g id="edge8" class="edge">
+<title>qS1&#45;&gt;qERROR_CADENA</title>
+<path fill="none" stroke="black" d="M313.7,-680.73C349.67,-680.73 433.04,-680.73 501.35,-680.73"/>
+<polygon fill="black" stroke="black" points="501.1,-684.23 511.1,-680.73 501.1,-677.23 501.1,-684.23"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-682.68" font-family="Times New Roman,serif" font-size="9.00">\n / EOF</text>
+</g>
+<!-- qN1&#45;&gt;qN1 -->
+<g id="edge10" class="edge">
+<title>qN1&#45;&gt;qN1</title>
+<path fill="none" stroke="black" d="M276.34,-483.34C257.19,-496.39 263.33,-512.85 294.75,-512.85 320.05,-512.85 328.96,-502.19 321.5,-491.23"/>
+<polygon fill="black" stroke="black" points="323.94,-488.72 314.27,-484.38 319.12,-493.8 323.94,-488.72"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-514.8" font-family="Times New Roman,serif" font-size="9.00">digito</text>
+</g>
+<!-- qACEPTA_ENTERO -->
+<g id="node9" class="node">
+<title>qACEPTA_ENTERO</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="605.62" cy="-526.73" rx="39.42" ry="39.42"/>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-526.73" rx="43.42" ry="43.42"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-528.48" font-family="Times New Roman,serif" font-size="10.00">ACEPTA</text>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-517.23" font-family="Times New Roman,serif" font-size="10.00">ENTERO</text>
+</g>
+<!-- qN1&#45;&gt;qACEPTA_ENTERO -->
+<g id="edge11" class="edge">
+<title>qN1&#45;&gt;qACEPTA_ENTERO</title>
+<path fill="none" stroke="black" d="M315.08,-477.98C361.61,-485.82 481.25,-505.96 551.31,-517.75"/>
+<polygon fill="black" stroke="black" points="550.6,-521.18 561.04,-519.39 551.76,-514.28 550.6,-521.18"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-505.79" font-family="Times New Roman,serif" font-size="9.00">otro (no &#39;:&#39;)</text>
+</g>
+<!-- qH1 -->
+<g id="node10" class="node">
+<title>qH1</title>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-416.73" rx="20.12" ry="20.12"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-412.85" font-family="Times New Roman,serif" font-size="10.00">qH1</text>
+</g>
+<!-- qN1&#45;&gt;qH1 -->
+<g id="edge12" class="edge">
+<title>qN1&#45;&gt;qH1</title>
+<path fill="none" stroke="black" d="M314.61,-471.19C366.41,-461.46 511.24,-434.26 574.46,-422.39"/>
+<polygon fill="black" stroke="black" points="574.95,-425.86 584.13,-420.58 573.66,-418.98 574.95,-425.86"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-451.15" font-family="Times New Roman,serif" font-size="9.00">:</text>
+</g>
+<!-- qH1&#45;&gt;qH1 -->
+<g id="edge13" class="edge">
+<title>qH1&#45;&gt;qH1</title>
+<path fill="none" stroke="black" d="M587.12,-425.53C568.5,-438.55 574.66,-454.85 605.62,-454.85 630.53,-454.85 639.39,-444.29 632.2,-433.39"/>
+<polygon fill="black" stroke="black" points="634.82,-431.05 625.21,-426.59 629.93,-436.07 634.82,-431.05"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-456.8" font-family="Times New Roman,serif" font-size="9.00">digito</text>
+</g>
+<!-- qACEPTA_HORA -->
+<g id="node11" class="node">
+<title>qACEPTA_HORA</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="941.08" cy="-476.73" rx="89.27" ry="89.27"/>
+<ellipse fill="none" stroke="black" cx="941.08" cy="-476.73" rx="93.27" ry="93.27"/>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-478.48" font-family="Times New Roman,serif" font-size="10.00">ACEPTA HORA</text>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-467.23" font-family="Times New Roman,serif" font-size="10.00">(valida rango 06:00&#45;21:00)</text>
+</g>
+<!-- qH1&#45;&gt;qACEPTA_HORA -->
+<g id="edge14" class="edge">
+<title>qH1&#45;&gt;qACEPTA_HORA</title>
+<path fill="none" stroke="black" d="M625.5,-420.13C665.69,-427.36 762.17,-444.72 837.76,-458.32"/>
+<polygon fill="black" stroke="black" points="836.81,-461.7 847.27,-460.03 838.05,-454.81 836.81,-461.7"/>
+<text xml:space="preserve" text-anchor="middle" x="780.51" y="-455.82" font-family="Times New Roman,serif" font-size="9.00">otro</text>
+</g>
+<!-- qA1&#45;&gt;qA1 -->
+<g id="edge16" class="edge">
+<title>qA1&#45;&gt;qA1</title>
+<path fill="none" stroke="black" d="M276.34,-396.34C257.19,-409.39 263.33,-425.85 294.75,-425.85 320.05,-425.85 328.96,-415.19 321.5,-404.23"/>
+<polygon fill="black" stroke="black" points="323.94,-401.72 314.27,-397.38 319.12,-406.8 323.94,-401.72"/>
+<text xml:space="preserve" text-anchor="middle" x="294.75" y="-427.8" font-family="Times New Roman,serif" font-size="9.00">letra | digito</text>
+</g>
+<!-- qCOD1 -->
+<g id="node13" class="node">
+<title>qCOD1</title>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-321.73" rx="28.55" ry="28.55"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-317.85" font-family="Times New Roman,serif" font-size="10.00">qCOD1</text>
+</g>
+<!-- qA1&#45;&gt;qCOD1 -->
+<g id="edge17" class="edge">
+<title>qA1&#45;&gt;qCOD1</title>
+<path fill="none" stroke="black" d="M314.61,-383.7C364.28,-373.09 499.47,-344.2 566.25,-329.93"/>
+<polygon fill="black" stroke="black" points="566.98,-333.35 576.02,-327.84 565.51,-326.51 566.98,-333.35"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-360.63" font-family="Times New Roman,serif" font-size="9.00">&#45;</text>
+</g>
+<!-- qACEPTA_PALABRA -->
+<g id="node16" class="node">
+<title>qACEPTA_PALABRA</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="605.62" cy="-157.73" rx="113.14" ry="113.14"/>
+<ellipse fill="none" stroke="black" cx="605.62" cy="-157.73" rx="117.14" ry="117.14"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-165.1" font-family="Times New Roman,serif" font-size="10.00">ACEPTA</text>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-153.85" font-family="Times New Roman,serif" font-size="10.00">(clasificar: RESERVADA / DIA /</text>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-142.6" font-family="Times New Roman,serif" font-size="10.00">CATEGORIA / IDENTIFICADOR)</text>
+</g>
+<!-- qA1&#45;&gt;qACEPTA_PALABRA -->
+<g id="edge21" class="edge">
+<title>qA1&#45;&gt;qACEPTA_PALABRA</title>
+<path fill="none" stroke="black" d="M315.18,-386.74C339.82,-384.69 382.8,-378.34 413.48,-358.73 424.27,-351.83 423.02,-345.84 431.48,-336.23 457.46,-306.75 486.86,-275.67 513.95,-247.85"/>
+<polygon fill="black" stroke="black" points="516.36,-250.4 520.84,-240.8 511.35,-245.51 516.36,-250.4"/>
+<text xml:space="preserve" text-anchor="middle" x="450.98" y="-338.18" font-family="Times New Roman,serif" font-size="9.00">otro</text>
+</g>
+<!-- qCOD1&#45;&gt;qCOD1 -->
+<g id="edge18" class="edge">
+<title>qCOD1&#45;&gt;qCOD1</title>
+<path fill="none" stroke="black" d="M581.79,-337.95C570.19,-352.59 578.14,-368.28 605.62,-368.28 626.66,-368.28 636.25,-359.08 634.39,-348.2"/>
+<polygon fill="black" stroke="black" points="637.6,-346.81 630.11,-339.31 631.29,-349.84 637.6,-346.81"/>
+<text xml:space="preserve" text-anchor="middle" x="605.62" y="-370.23" font-family="Times New Roman,serif" font-size="9.00">digito</text>
+</g>
+<!-- qACEPTA_CODIGO -->
+<g id="node14" class="node">
+<title>qACEPTA_CODIGO</title>
+<ellipse fill="#c8e6c9" stroke="black" cx="941.08" cy="-321.73" rx="39.42" ry="39.42"/>
+<ellipse fill="none" stroke="black" cx="941.08" cy="-321.73" rx="43.42" ry="43.42"/>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-323.48" font-family="Times New Roman,serif" font-size="10.00">ACEPTA</text>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-312.23" font-family="Times New Roman,serif" font-size="10.00">CODIGO</text>
+</g>
+<!-- qCOD1&#45;&gt;qACEPTA_CODIGO -->
+<g id="edge19" class="edge">
+<title>qCOD1&#45;&gt;qACEPTA_CODIGO</title>
+<path fill="none" stroke="black" d="M634.48,-321.73C689.71,-321.73 813.96,-321.73 885.86,-321.73"/>
+<polygon fill="black" stroke="black" points="885.85,-325.23 895.85,-321.73 885.85,-318.23 885.85,-325.23"/>
+<text xml:space="preserve" text-anchor="middle" x="780.51" y="-323.68" font-family="Times New Roman,serif" font-size="9.00">otro (&gt;=1 digito leido)</text>
+</g>
+<!-- qERROR_CODIGO -->
+<g id="node15" class="node">
+<title>qERROR_CODIGO</title>
+<ellipse fill="#ffcdd2" stroke="black" cx="941.08" cy="-157.73" rx="98.82" ry="98.82"/>
+<ellipse fill="none" stroke="black" cx="941.08" cy="-157.73" rx="102.82" ry="102.82"/>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-159.48" font-family="Times New Roman,serif" font-size="10.00">ERROR</text>
+<text xml:space="preserve" text-anchor="middle" x="941.08" y="-148.23" font-family="Times New Roman,serif" font-size="10.00">CODIGO_MAL_FORMADO</text>
+</g>
+<!-- qCOD1&#45;&gt;qERROR_CODIGO -->
+<g id="edge20" class="edge">
+<title>qCOD1&#45;&gt;qERROR_CODIGO</title>
+<path fill="none" stroke="black" d="M633.5,-314.66C657.43,-307.97 693.13,-296.99 722.76,-283.73 763.87,-265.33 807.17,-241.27 844.22,-219.11"/>
+<polygon fill="black" stroke="black" points="845.93,-222.16 852.69,-214 842.32,-216.17 845.93,-222.16"/>
+<text xml:space="preserve" text-anchor="middle" x="780.51" y="-277.12" font-family="Times New Roman,serif" font-size="9.00">otro (0 digitos leidos)</text>
+</g>
+</g>
+</svg>
+</div>
+</body>
+</html>

@@ -11,7 +11,9 @@ from analizador_lexico import tokenizar_texto
 from modelo import ConstructorModelo, detectar_choques
 from reportes import GeneradorReportes
 
-CARPETA_SALIDA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reportes")
+CARPETA_SALIDA = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reportes"
+)
 
 
 class AplicacionProyecto1(tk.Tk):
@@ -41,7 +43,8 @@ class AplicacionProyecto1(tk.Tk):
         for texto, clave in (("Reporte 1", "horario_semanal"),
                              ("Reporte 2", "carga_catedraticos"),
                              ("Reporte 3", "estadistico_general"),
-                             ("Errores", "errores_lexicos")):
+                             ("Errores", "errores_lexicos"),
+                             ("Diagrama AFD", "diagrama_afd")):
             b = tk.Button(barra, text=texto, width=10, state="disabled",
                           command=lambda k=clave: self.abrir_reporte(k))
             b.pack(side="left", padx=2)
