@@ -44,7 +44,8 @@ class AplicacionProyecto1(tk.Tk):
                              ("Reporte 2", "carga_catedraticos"),
                              ("Reporte 3", "estadistico_general"),
                              ("Errores", "errores_lexicos"),
-                             ("Diagrama AFD", "diagrama_afd")):
+                              #("Diagrama AFD", "diagrama_afd")
+                             ):
             b = tk.Button(barra, text=texto, width=10, state="disabled",
                           command=lambda k=clave: self.abrir_reporte(k))
             b.pack(side="left", padx=2)
